@@ -56,5 +56,31 @@ function toggleTheme() {
     localStorage.setItem('theme', 'light-mode');
   }
 }
-
+  document.addEventListener("DOMContentLoaded", () => {
+    const name = "Lukáš Nedbal";
+    const container = document.getElementById("animatedName");
+    const welcome = document.getElementById("welcome");
+  
+    name.split("").forEach(char => {
+      const span = document.createElement("span");
+      span.textContent = char === " " ? "\u00A0" : char;
+      container.appendChild(span);
+    });
+  
+    const letters = container.querySelectorAll("span");
+  
+    letters.forEach((span, i) => {
+      setTimeout(() => {
+        span.classList.add("visible");
+      }, i * 100);
+    });
+  
+    setTimeout(() => {
+      welcome.classList.add("fadeout");
+      document.body.classList.add("allow-scroll");
+      setTimeout(() => {
+        welcome.style.display = "none";
+      }, 1000);
+    }, letters.length * 100 + 1500);
+  });
 toggleBtn.addEventListener('click', toggleTheme);
