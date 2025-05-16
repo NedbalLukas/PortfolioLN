@@ -3,39 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Propracovaný Navbar</title>
+  <title>Profesionální Navbar - Vylepšený Burger</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <header class="header">
-    <nav class="navbar">
-      <div class="navbar-logo">Lukáš Nedbal</div>
+<header class="header">
+  <nav class="navbar" role="navigation" aria-label="Hlavní navigace">
+    <div class="navbar-logo" tabindex="0">Lukáš Nedbal</div>
 
-      <button class="hamburger" id="hamburger" aria-label="Otevřít menu" aria-expanded="false" aria-controls="navbar-menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
+    <button 
+      class="hamburger" 
+      id="hamburger" 
+      aria-label="Otevřít menu" 
+      aria-expanded="false" 
+      aria-controls="navbar-menu">
+      <span class="bar bar1"></span>
+      <span class="bar bar2"></span>
+      <span class="bar bar3"></span>
+    </button>
 
-      <div class="navbar-menu" id="navbar-menu" role="menu" aria-hidden="true">
-        <a href="#" role="menuitem" tabindex="0">Domů</a>
-        <a href="#" role="menuitem" tabindex="0">O nás</a>
-        <a href="#" role="menuitem" tabindex="0">Služby</a>
-        <a href="#" role="menuitem" tabindex="0">Portfolio</a>
-        <a href="#" role="menuitem" tabindex="0">Kontakt</a>
-      </div>
-    </nav>
-  </header>
+    <div class="navbar-menu" id="navbar-menu" role="menu" aria-hidden="true">
+      <a href="#home" class="nav-link active" role="menuitem" tabindex="0" style="--delay: 0s;">Domů</a>
+      <a href="#about" class="nav-link" role="menuitem" tabindex="0" style="--delay: 0.1s;">O mně</a>
+      <a href="#projects" class="nav-link" role="menuitem" tabindex="0" style="--delay: 0.2s;">Projekty</a>
+      <a href="#skills" class="nav-link" role="menuitem" tabindex="0" style="--delay: 0.3s;">Dovednosti</a>
+      <a href="#contact" class="nav-link" role="menuitem" tabindex="0" style="--delay: 0.4s;">Kontakt</a>
+    </div>
+  </nav>
+</header>
 
-  <main>
-    <section style="padding: 2rem; max-width: 900px; margin: auto;">
-      <h1>Vítejte na mé stránce</h1>
-      <p>Obsah stránky pro testování navbaru.</p>
-      <p style="height: 1200px;">Scrolluj dolů pro otestování sticky efektu.</p>
-    </section>
-  </main>
-
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

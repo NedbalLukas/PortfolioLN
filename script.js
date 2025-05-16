@@ -1,12 +1,20 @@
 const hamburger = document.getElementById('hamburger');
-const menu = document.getElementById('navbar-menu');
+const navbarMenu = document.getElementById('navbar-menu');
 
 hamburger.addEventListener('click', () => {
   const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
+  hamburger.setAttribute('aria-expanded', !expanded);
 
   hamburger.classList.toggle('active');
-  menu.classList.toggle('active');
+  navbarMenu.classList.toggle('active');
 
-  hamburger.setAttribute('aria-expanded', !expanded);
-  menu.setAttribute('aria-hidden', expanded);
+  const hidden = navbarMenu.getAttribute('aria-hidden') === 'true';
+  navbarMenu.setAttribute('aria-hidden', !hidden);
+
+  // Zablokování scrollu při otevřeném menu na mobilu
+  if (navbarMenu.classList.contains('active')) {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = '';
+  }
 });

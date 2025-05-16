@@ -1,153 +1,210 @@
-/* Reset a základ */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
 
-body {
-  margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f9f9f9;
-  color: #222;
-}
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #181818;
+    color: #E0E0E0;
+  }
 
-/* Header & navbar */
-.header {
-  position: sticky;
-  top: 0;
-  z-index: 9999;
-  background-color: #0b3d2e; /* Aston Martin green */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
-}
+  .header {
+    position: sticky;
+    top: 0;
+    background-color: #121212;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.7);
+    z-index: 9999;
+    animation: fadeDown 0.5s ease forwards;
+  }
 
-.navbar {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0.9rem 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+  @keyframes fadeDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
-/* Logo */
-.navbar-logo {
-  color: white;
-  font-size: 1.8rem;
-  font-weight: 700;
-  user-select: none;
-  letter-spacing: 0.05em;
-}
+  .navbar {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-/* Menu */
-.navbar-menu {
-  display: flex;
-  gap: 2rem;
-}
+  .navbar-logo {
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: #4CAF50; 
+    user-select: none;
+    cursor: default;
+    transition: color 0.3s ease;
+  }
 
-.navbar-menu a {
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1rem;
-  position: relative;
-  padding: 0.2rem 0;
-  transition: color 0.3s ease;
-  user-select: none;
-}
+  .navbar-menu {
+    display: flex;
+    gap: 2.5rem;
+    transition: max-height 0.35s ease;
+  }
 
-.navbar-menu a::after {
-  content: "";
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  bottom: -4px;
-  left: 0;
-  background-color: white;
-  transition: width 0.3s ease;
-  border-radius: 2px;
-}
+  .navbar-menu a {
+    color: #E0E0E0;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    position: relative;
+    padding: 0.3rem 0;
+    user-select: none;
+    transition: color 0.3s ease;
+    cursor: pointer;
+  }
 
-.navbar-menu a:hover,
-.navbar-menu a:focus {
-  color: #a0d995;
-  outline: none;
-}
+  .navbar-menu a:hover,
+  .navbar-menu a:focus,
+  .navbar-menu a.active {
+    color: #4CAF50;
+  }
 
-.navbar-menu a:hover::after,
-.navbar-menu a:focus::after {
-  width: 100%;
-}
+  .navbar-menu a:hover::after,
+  .navbar-menu a:focus::after,
+  .navbar-menu a.active::after {
+    width: 100%;
+  }
 
-/* Hamburger button */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 28px;
-  height: 22px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  user-select: none;
-}
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 28px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    user-select: none;
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 10001;
+  }
 
-.hamburger:focus {
-  outline: 2px solid #a0d995;
-  outline-offset: 2px;
-}
+  .hamburger:focus {
+    outline: 2px solid #4CAF50;
+    outline-offset: 2px;
+  }
 
-.bar {
-  width: 100%;
-  height: 3px;
-  background-color: white;
-  border-radius: 2px;
-  transition: all 0.3s ease;
-  transform-origin: 1px;
-}
+  .bar {
+    width: 28px;
+    height: 3.5px;
+    background-color: #E0E0E0;
+    border-radius: 4px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+  }
 
-/* Animace hamburger menu při aktivaci */
-.hamburger.active .bar:nth-child(1) {
-  transform: rotate(45deg);
-}
+  .hamburger.active .bar1 {
+    transform: translateY(8.5px) rotate(45deg);
+    background-color: #4CAF50;
+  }
 
-.hamburger.active .bar:nth-child(2) {
-  opacity: 0;
-  transform: translateX(20px);
-}
+  .hamburger.active .bar2 {
+    opacity: 0;
+    transform: translateX(30px);
+  }
 
-.hamburger.active .bar:nth-child(3) {
-  transform: rotate(-45deg);
-}
+  .hamburger.active .bar3 {
+    transform: translateY(-8.5px) rotate(-45deg);
+    background-color: #4CAF50;
+  }
 
-/* Responsivita */
-@media (max-width: 768px) {
   .navbar-menu {
     position: absolute;
     top: 100%;
     left: 0;
     right: 0;
-    background-color: #0b3d2e;
+    background-color: #121212;
     flex-direction: column;
     overflow: hidden;
     max-height: 0;
-    transition: max-height 0.35s ease;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-  }
-
-  .navbar-menu.active {
-    max-height: 300px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.9);
+    opacity: 0;
+    transform: translateY(-20px);
+    transition:
+      max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 0.35s ease 0.15s,
+      transform 0.35s ease 0.15s;
+    pointer-events: none;
+    z-index: 10000;
+    display: flex;
+    align-items: center; 
+    text-align: center;
   }
 
   .navbar-menu a {
-    padding: 1rem;
-    font-size: 1.1rem;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.3s ease var(--delay), transform 0.3s ease var(--delay);
+    border-bottom: none !important;
+    padding: 0.7rem 0;
+    width: 100%; 
+    box-sizing: border-box;
   }
 
-  .hamburger {
-    display: flex;
+  .navbar-menu.active a {
+    opacity: 1;
+    transform: translateX(0);
   }
-}
+
+  .navbar-menu.active {
+    max-height: 320px;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  @media (min-width: 769px) {
+    .navbar-menu {
+      position: static;
+      max-height: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+      pointer-events: auto !important;
+      flex-direction: row;
+      gap: 2.5rem;
+      box-shadow: none;
+      align-items: center;
+      text-align: left;
+    }
+
+    .navbar-menu a {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: color 0.3s ease;
+      width: auto;
+      border-bottom: none !important;
+    }
+
+    .navbar-menu a::after {
+      content: "";
+    }
+
+    .hamburger {
+      display: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hamburger {
+      display: flex;
+    }
+  }
