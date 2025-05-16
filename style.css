@@ -227,7 +227,7 @@ h1 {
   color: var(--primary-color);
 }
 p {
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   line-height: 1.6;
   color: var(--text-color);
   max-width: 600px;
@@ -249,7 +249,7 @@ p {
   }
   #welcome {
     position: fixed; inset: 0; 
-    display: flex; justify-content: center; align-items: center; z-index: 999999;
+    display: flex; justify-content: center; align-items: center; z-index: 9999;
   }
   #welcome.fadeout {
     animation: fadeOut 1s forwards;
