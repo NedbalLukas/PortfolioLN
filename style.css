@@ -55,6 +55,27 @@ body.dark {
 .navbar-menu {
   display: flex;
   gap: 2.5rem;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: var(--bg-color);
+  flex-direction: column;
+  overflow: hidden;
+  max-height: 0;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  box-shadow: 0 8px 20px var(--shadow-color);
+  opacity: 0;
+  transform: translateY(-20px);
+  transition:
+    max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.35s ease 0.15s,
+    transform 0.35s ease 0.15s;
+  pointer-events: none;
+  z-index: 10000;
+  align-items: center;
+  text-align: center;
 }
 .navbar-menu a {
   color: var(--text-color);
@@ -62,20 +83,27 @@ body.dark {
   font-weight: 600;
   font-size: 1.1rem;
   position: relative;
-  padding: 0.3rem 0;
+  padding: 0.7rem 0;
+  width: 100%;
+  box-sizing: border-box;
   user-select: none;
-  transition: color 0.3s ease;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.3s ease var(--delay), transform 0.3s ease var(--delay);
+  border-bottom: none !important;
 }
 .navbar-menu a::after {
-  content: "";
-  position: absolute;
-  width: 0%;
-  height: 3px;
-  bottom: -6px;
-  left: 0;
-  background-color: var(--primary-color);
-  border-radius: 3px;
-  transition: width 0.3s ease;
+  content: none;
+}
+.navbar-menu.active {
+  max-height: 320px;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.navbar-menu.active a {
+  opacity: 1;
+  transform: translateX(0);
 }
 .navbar-menu a:hover,
 .navbar-menu a:focus,
@@ -125,52 +153,6 @@ body.dark {
 .hamburger.active .bar3 {
   transform: translateY(-8.5px) rotate(-45deg);
   background-color: var(--primary-color);
-}
-.navbar-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background-color: var(--bg-color);
-  flex-direction: column;
-  overflow: hidden;
-  max-height: 0;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-  box-shadow: 0 8px 20px var(--shadow-color);
-  opacity: 0;
-  transform: translateY(-20px);
-  transition:
-    max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-    opacity 0.35s ease 0.15s,
-    transform 0.35s ease 0.15s;
-  pointer-events: none;
-  z-index: 10000;
-  display: flex;
-  align-items: center;
-  text-align: center;
-}
-.navbar-menu a {
-  opacity: 0;
-  transform: translateX(-20px);
-  transition: opacity 0.3s ease var(--delay), transform 0.3s ease var(--delay);
-  border-bottom: none !important;
-  padding: 0.7rem 0;
-  width: 100%;
-  box-sizing: border-box;
-}
-.navbar-menu a::after {
-  content: none;
-}
-.navbar-menu.active a {
-  opacity: 1;
-  transform: translateX(0);
-}
-.navbar-menu.active {
-  max-height: 320px;
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
 }
 @media (min-width: 769px) {
   .navbar-menu {
