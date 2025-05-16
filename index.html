@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Propracovaný Navbar</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="header">
+    <nav class="navbar">
+      <div class="navbar-logo">LukášNedbal</div>
+
+      <button class="hamburger" id="hamburger" aria-label="Otevřít menu" aria-expanded="false" aria-controls="navbar-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <div class="navbar-menu" id="navbar-menu" role="menu" aria-hidden="true">
+        <a href="#" role="menuitem" tabindex="0">Domů</a>
+        <a href="#" role="menuitem" tabindex="0">O nás</a>
+        <a href="#" role="menuitem" tabindex="0">Služby</a>
+        <a href="#" role="menuitem" tabindex="0">Portfolio</a>
+        <a href="#" role="menuitem" tabindex="0">Kontakt</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section style="padding: 2rem; max-width: 900px; margin: auto;">
+      <h1>Vítejte na mé stránce</h1>
+      <p>Obsah stránky pro testování navbaru.</p>
+      <p style="height: 1200px;">Scrolluj dolů pro otestování sticky efektu.</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
