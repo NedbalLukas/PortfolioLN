@@ -3,14 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Profesionální Navbar - Vylepšený Burger</title>
+  <title>Lukáš Nedbal </title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
 <header class="header">
   <nav class="navbar" role="navigation" aria-label="Hlavní navigace">
-    <div class="navbar-logo" tabindex="0">Lukáš Nedbal</div>
+    <div class="navbar-logo" tabindex="0">
+            <button 
+      class="theme-toggle" 
+      id="theme-toggle" 
+    <button class="theme-toggle" aria-label="Toggle theme" id="theme-toggle">
+  <span class="icon sun">☀</span>
+  <span class="icon moon">◐</span>
+    </button>
+    </button>
+      Lukáš Nedbal
+    </div>
+
+
 
     <button 
       class="hamburger" 
@@ -32,6 +44,14 @@
     </div>
   </nav>
 </header>
+
+<main class="content">
+  <section id="home">
+    <h1>Vítejte na mém portfoliu</h1>
+    <p>Jsem frontend developer Lukáš Nedbal.</p>
+  </section>
+  <!-- Další sekce třeba O mně, Projekty atd. -->
+</main>
 
 <script src="script.js"></script>
 </body>
