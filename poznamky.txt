@@ -1,0 +1,20 @@
+lukas-nedbal-portfolio/
+│
+├── index.html
+│
+├── css/
+│   ├── style.css
+│   └── responsive.css
+│
+├── js/
+│   ├── main.js
+│   └── animations.js
+│
+├── assets/
+│   ├── images/
+│   ├── fonts/
+│   └── icons/
+│
+├── robots.txt
+├── sitemap.xml
+└── .gitignore
