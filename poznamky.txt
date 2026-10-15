@@ -10,11 +10,7 @@ lukas-nedbal-portfolio/
 │   ├── main.js
 │   └── animations.js
 │
-├── assets/
-│   ├── images/
-│   ├── fonts/
-│   └── icons/
-│
-├── robots.txt
-├── sitemap.xml
-└── .gitignore
+├
+│   images/
+│   fonts/
+│   icons/

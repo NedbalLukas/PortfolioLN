@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lukáš Nedbal – grafik a webový vývojář</title>
+  <meta name="description" content="Portfolio Lukáše Nedbala: vizuální identity, 3D animace v Blenderu a weby.">
+  <script>document.documentElement.classList.add('js');</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;1,6..96,400&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="brand" href="#top">Lukáš Nedbal</a>
+    <nav aria-label="Hlavní navigace">
+      <a href="#prace">Práce</a>
+      <a href="#o-mne">O mně</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <section class="hero">
+      <h1 class="hero-name">
+        <span class="line" data-split>Lukáš</span>
+        <span class="line line-2" data-split>Nedbal</span>
+      </h1>
+      <div class="hero-foot">
+        <p class="hero-lead">Grafik ze Zlína. Dělám vizuální identity, 3D animace a loga, které vypadají a fungují!</p>
+        <a class="hero-link" href="#prace">Prohlédnout práce</a>
+      </div>
+    </section>
+
+    <section class="work" id="prace">
+      <h2 class="section-title">Vybrané práce</h2>
+
+      <!-- Obrázky: nahraď <div class="media-inner ..."> za
+           <img class="media-inner" src="images/nazev.jpg" alt="Popis"> -->
+
+      <article class="project">
+        <div class="media"><div class="media-inner tone-a"></div></div>
+        <div class="project-text">
+          <h3>Versace Myrhee</h3>
+          <p>Maturitní projekt: 3D animace parfému Versace Myrhee v Blenderu. Zelenozlatá paleta, pomalé kamerové jízdy a materiály skla a kovu.</p>
+          <p class="tags">Blender, 3D animace, motion</p>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="media"><div class="media-inner tone-b"></div></div>
+        <div class="project-text">
+          <h3>Logo pro Arboristika Matějčný</h3>
+          <p>Design loga pro společnost Arboristika Matějčný. Vizuální návrh s důrazem na přehlednost a profesionální vzhled.</p>
+          <p class="tags">Adobe ilustrator, Vizuální návrh</p>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="media"><div class="media-inner tone-c"></div></div>
+        <div class="project-text">
+          <h3>Weboo</h3>
+          <p>Praxe ve webové firmě. Sem napiš, co jsi konkrétně dělal: návrh, kódování, nasazení.</p>
+          <p class="tags">HTML, CSS, JavaScript, React</p>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="media"><div class="media-inner tone-d"></div></div>
+        <div class="project-text">
+          <h3>Blogic</h3>
+          <p>Praxe v IT firmě. Sem napiš svůj přínos a co ses naučil.</p>
+          <p class="tags">PHP, C#, týmová práce</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="about" id="o-mne">
+      <p class="statement">Studuji informační technologie na SŠ Axis, mezi grafikou nevidím hranice. Návrh musí být hezký, ale hlavně musí fungovat v rukou toho, kdo ho používá.</p>
+
+      <dl class="skills">
+        <div>
+          <dt>Grafika a 3D</dt>
+          <dd>Adobe Illustrator</dd>
+          <dd>Adobe Photoshop</dd>
+          <dd>Blender</dd>
+        </div>
+        <div>
+          <dt>Ostatní</dt>
+          <dd>Angličtina B1</dd>
+          <dd>Řidičský průkaz B</dd>
+          <dd>Zlín Film Festival, dobrovolník</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section class="contact" id="kontakt">
+      <h2 class="section-title">Napiš, a něco vytvoříme</h2>
+      <a class="mail" href="mailto:#">Napiš</a>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year">2026</span> Lukáš Nedbal</p>
+    <p>Zlín</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
+</body>
+</html>

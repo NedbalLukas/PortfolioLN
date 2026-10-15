@@ -1,0 +1,103 @@
+/* Tlačítko menu je na desktopu skryté */
+.menu-toggle { display: none; }
+
+/* Tablet */
+@media (max-width: 960px) {
+  .project,
+  .project:nth-of-type(even) { grid-template-columns: 1fr; align-items: start; }
+  .project:nth-of-type(even) .media { order: 0; }
+  .project:nth-of-type(odd) .media,
+  .media { aspect-ratio: 4 / 3; }
+  .skills { grid-template-columns: 1fr 1fr; }
+  .hero-lead { font-size: 1.3125rem; }
+  .site-footer { font-size: 1.0625rem; }
+}
+
+/* Mobil */
+@media (max-width: 760px) {
+  body { font-size: 1.0625rem; }
+
+  /* Menu: tlačítko + celoobrazovkový panel */
+  .site-header { align-items: center; padding-block: 1rem; }
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 1.1rem;
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    background: transparent;
+    color: inherit;
+    font: 500 1rem var(--text);
+    cursor: pointer;
+    pointer-events: auto;
+  }
+  .site-header nav {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    padding: 6rem var(--pad) 3rem;
+    background: var(--green);
+    color: var(--paper);
+    pointer-events: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .35s var(--ease), visibility 0s linear .35s;
+  }
+  .site-header nav a {
+    font-family: var(--display);
+    font-size: clamp(2.75rem, 14vw, 4.5rem);
+    line-height: 1.1;
+    font-weight: 400;
+    letter-spacing: -.02em;
+    padding: .15em 0;
+    pointer-events: auto;
+  }
+  .site-header nav a:hover { color: var(--gold); }
+  .site-header nav a::after { display: none; }
+
+  .site-header.is-open { mix-blend-mode: normal; color: var(--paper); }
+  .site-header.is-open nav {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: opacity .35s var(--ease), visibility 0s;
+  }
+  body.menu-open { overflow: hidden; }
+
+  /* Zelené sekce: větší text */
+  .hero { padding-top: 6rem; }
+  .hero-name {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-size: clamp(4.5rem, 25vw, 12rem);
+  }
+  .hero-name .line-2 { padding-left: 0; }
+  .hero-foot { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+  .hero-lead { font-size: 1.4rem; line-height: 1.45; }
+  .hero-link { font-size: 1.1875rem; }
+
+  .contact .section-title { font-size: 3.25rem; }
+  .mail { font-size: clamp(2.1rem, 10.5vw, 3.5rem); }
+  .site-footer { flex-direction: column; gap: .25rem; font-size: 1.125rem; }
+
+  .skills { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+/* Omezený pohyb */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .js .ch > span { transform: none; transition: none; }
+  .media-inner { height: 100%; }
+  .js [data-reveal],
+  .js .hero-foot,
+  .js .site-header { opacity: 1; transform: none; }
+  .project:hover .media-inner { scale: 1; }
+  * { transition-duration: .01ms !important; }
+}
