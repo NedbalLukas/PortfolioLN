@@ -24,7 +24,7 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
     header.classList.toggle('is-open', open);
     document.body.classList.toggle('menu-open', open);
     toggle.setAttribute('aria-expanded', String(open));
-    label.textContent = open ? 'Zavřít' : 'Menu';
+
   };
 
   toggle.addEventListener('click', () => setOpen(!header.classList.contains('is-open')));

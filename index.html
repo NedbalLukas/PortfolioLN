@@ -9,7 +9,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;1,6..96,400&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;1,6..96,400&family=Hanken+Grotesk:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css">
 </head>
@@ -17,7 +17,10 @@
 
   <header class="site-header">
     <a class="brand" href="#top">Lukáš Nedbal</a>
-    <nav aria-label="Hlavní navigace">
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu">
+      <span class="menu-label">Menu</span>
+    </button>
+    <nav id="menu" aria-label="Hlavní navigace">
       <a href="#prace">Práce</a>
       <a href="#o-mne">O mně</a>
       <a href="#kontakt">Kontakt</a>
@@ -40,8 +43,8 @@
     <section class="work" id="prace">
       <h2 class="section-title">Vybrané práce</h2>
 
-      <!-- Obrázky: nahraď <div class="media-inner ..."> za
-           <img class="media-inner" src="images/nazev.jpg" alt="Popis"> -->
+      <!-- Obrázek vždy takto: <div class="media"><img class="media-inner" src="images/nazev.jpg" alt="Popis"></div>
+           Placeholder (barevná plocha): <div class="media"><div class="media-inner tone-b"></div></div> -->
 
       <article class="project">
         <div class="media"><div class="media-inner tone-a"></div></div>
@@ -85,13 +88,18 @@
 
       <dl class="skills">
         <div>
-          <dt>Grafika a 3D</dt>
+          <dt>2D Grafika</dt>
           <dd>Adobe Illustrator</dd>
           <dd>Adobe Photoshop</dd>
-          <dd>Blender</dd>
+          <dd>Adobe Lightroom</dd>
         </div>
         <div>
-          <dt>Ostatní</dt>
+          <dt>3D Grafika</dt>
+          <dd>Blender</dd>
+          <dd>Adobe Premiere Pro</dd>
+        </div>
+        <div>
+          <dt>Osobní dovednosti</dt>
           <dd>Angličtina B1</dd>
           <dd>Řidičský průkaz B</dd>
           <dd>Zlín Film Festival, dobrovolník</dd>
@@ -100,8 +108,8 @@
     </section>
 
     <section class="contact" id="kontakt">
-      <h2 class="section-title">Napiš, a něco vytvoříme</h2>
-      <a class="mail" href="mailto:#">Napiš</a>
+      <h2 class="section-title">Máš nápad? Napiš mi.</h2>
+      <a class="mail" href="mailto:lukasnedbal@gmail.com">Kontaktuj mě ↗</a>
     </section>
 
   </main>

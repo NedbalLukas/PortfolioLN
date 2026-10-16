@@ -14,3 +14,10 @@ lukas-nedbal-portfolio/
 │   images/
 │   fonts/
 │   icons/
+
+
+
+
+Projekt	Poměr	Rozměr
+1. a 3. (Eros Earth, Weboo)	5:4 na šířku	2000 × 1600 px
+2. a 4. (Světýlka, Blogic)	4:5 na výšku	1600 × 2000 px
