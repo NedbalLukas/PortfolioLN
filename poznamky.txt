@@ -17,7 +17,5 @@ lukas-nedbal-portfolio/
 
 
 
-
-Projekt	Poměr	Rozměr
-1. a 3. (Eros Earth, Weboo)	5:4 na šířku	2000 × 1600 px
-2. a 4. (Světýlka, Blogic)	4:5 na výšku	1600 × 2000 px
+1. a 3. (Versace Myrhee, Weboo)	na šířku	5:4	2400 × 1920 px
+2. a 4. (Arboristika, Blogic)	na výšku	4:5	2000 × 2500 px
