@@ -1,84 +1,70 @@
 (() => {
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const root = document.documentElement;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // 1) Úvodní odhalení jména po písmenech (jediný "velký" moment stránky)
-  let index = 0;
-  document.querySelectorAll('[data-split]').forEach((el) => {
-    const text = el.textContent;
-    el.setAttribute('aria-label', text);
-    el.textContent = '';
-    [...text].forEach((char) => {
-      const wrap = document.createElement('span');
-      wrap.className = 'ch';
-      wrap.setAttribute('aria-hidden', 'true');
-      const inner = document.createElement('span');
-      inner.textContent = char;
-      inner.style.setProperty('--i', index++);
-      wrap.appendChild(inner);
-      el.appendChild(wrap);
-    });
+  const revealElements = [
+    ...document.querySelectorAll('.section-title, .project .media, .project-text, .statement, .skills > div, .mail')
+  ];
+
+  revealElements.forEach((element, index) => {
+    element.setAttribute('data-reveal', '');
+    if (element.matches('.project-text')) element.style.setProperty('--d', '0.12s');
+    else if (element.matches('.skills > div')) element.style.setProperty('--d', `${index * 0.08}s`);
+    else element.style.setProperty('--d', '0s');
   });
 
-  const start = () => document.documentElement.classList.add('is-ready');
-  if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(() => requestAnimationFrame(start));
-  } else {
-    window.addEventListener('load', start);
+  function showEverything() {
+    root.classList.add('is-ready');
+    revealElements.forEach((element) => element.classList.add('in-view'));
   }
 
+  if (reduceMotion) {
+    showEverything();
+    return;
+  }
 
-  // 3) Jemné odhalení obsahu při scrollu
-  const targets = [
-    ['.section-title', 0],
-    ['.project .media', 0],
-    ['.project-text', .12],
-    ['.statement', 0],
-    ['.skills > div', null],
-    ['.mail', .1],
-  ];
-  const revealEls = [];
-  targets.forEach(([selector, delay]) => {
-    document.querySelectorAll(selector).forEach((el, i) => {
-      el.setAttribute('data-reveal', '');
-      el.style.setProperty('--d', (delay === null ? i * 0.12 : delay) + 's');
-      revealEls.push(el);
+  document.querySelectorAll('[data-split]').forEach((element) => {
+    const label = element.textContent.trim();
+    element.setAttribute('aria-label', label);
+    element.textContent = '';
+
+    [...label].forEach((character, index) => {
+      const wrapper = document.createElement('span');
+      wrapper.className = 'ch';
+      wrapper.setAttribute('aria-hidden', 'true');
+
+      const letter = document.createElement('span');
+      letter.textContent = character === ' ' ? '\u00a0' : character;
+      letter.style.setProperty('--i', index);
+
+      wrapper.appendChild(letter);
+      element.appendChild(wrapper);
     });
   });
+
+  const start = () => requestAnimationFrame(() => root.classList.add('is-ready'));
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(start).catch(start);
+  } else {
+    window.addEventListener('load', start, { once: true });
+    window.setTimeout(start, 1200);
+  }
 
   if (!('IntersectionObserver' in window)) {
-    revealEls.forEach((el) => el.classList.add('in-view'));
-  } else {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('in-view');
-        io.unobserve(entry.target);
-      });
-    }, { threshold: .15, rootMargin: '0px 0px -6% 0px' });
-    revealEls.forEach((el) => io.observe(el));
+    revealElements.forEach((element) => element.classList.add('in-view'));
+    return;
   }
 
-  // 2) Jemný posun obrázků projektů při scrollu
-  if (reduce) return;
-  const items = [...document.querySelectorAll('.media')].map((media) => ({
-    media,
-    inner: media.querySelector('.media-inner'),
-  }));
-
-  let ticking = false;
-  const update = () => {
-    const vh = window.innerHeight;
-    items.forEach(({ media, inner }) => {
-      const r = media.getBoundingClientRect();
-      if (r.bottom < 0 || r.top > vh) return;
-      const progress = (r.top + r.height / 2 - vh / 2) / vh; // -1 až 1
-      inner.style.transform = `translateY(${progress * -6}%)`;
+  const observer = new IntersectionObserver((entries, currentObserver) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('in-view');
+      currentObserver.unobserve(entry.target);
     });
-    ticking = false;
-  };
-  window.addEventListener('scroll', () => {
-    if (!ticking) { ticking = true; requestAnimationFrame(update); }
-  }, { passive: true });
-  window.addEventListener('resize', update);
-  update();
+  }, {
+    threshold: 0.08,
+    rootMargin: '0px 0px -4% 0px'
+  });
+
+  revealElements.forEach((element) => observer.observe(element));
 })();

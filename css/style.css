@@ -1,4 +1,26 @@
-/* Premium Art Direction – deep green, paper, gold. Bodoni + grotesk. */
+/* Premium Art Direction – deep green, paper and gold. */
+
+@font-face {
+  font-family: "Manrope";
+  src: url("../fonts/Manrope-VariableFont_wght.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Playfair Display";
+  src: url("../fonts/PlayfairDisplay-VariableFont_wght.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Playfair Display";
+  src: url("../fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 400 900;
+  font-display: swap;
+}
 
 :root {
   --green: #14291f;
@@ -8,8 +30,8 @@
   --gold: #c2a25b;
   --gold-deep: #8d7234;
 
-  --display: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
-  --text: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --display: "Playfair Display", Georgia, serif;
+  --text: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
 
   --pad: clamp(1.25rem, 4vw, 3.5rem);
   --ease: cubic-bezier(.2, .7, .1, 1);
@@ -134,10 +156,9 @@ a { color: inherit; }
 .media-inner {
   display: block;
   width: 100%;
-  height: 100%;                 /* přesně rámeček: žádné zvětšení ani posun navíc */
+  height: 100%;
   object-fit: cover;
-  object-position: 50% 50%;     /* střed obrázku = střed rámečku */
-  transform: none !important;   /* vypíná posun obrázků při scrollu (rozmazával je a vychyloval ze středu) */
+  object-position: 50% 50%;
 }
 
 .tone-a { background: linear-gradient(145deg, #1d4a33 0%, #14291f 55%, #c2a25b 130%); }
@@ -163,7 +184,7 @@ a { color: inherit; }
 .statement {
   margin: 0 0 clamp(4rem, 8vw, 7rem);
   max-width: 54rem;
-  font-family: "Newsreader", Georgia, serif;
+  font-family: "Playfair Display", Georgia, serif;
   font-weight: 400;
   font-size: clamp(1.65rem, 3.8vw, 3rem);
   line-height: 1.25;
@@ -220,8 +241,10 @@ a { color: inherit; }
 }
 .js [data-reveal].in-view { opacity: 1; transform: none; }
 
-/* Hero: spodní řádek naběhne po jménu, hlavička se zjeví */
-.js .hero-foot { opacity: 0; transition: opacity 1s ease 1.3s; }
-.js.is-ready .hero-foot { opacity: 1; }
-.site-header { animation: header-in 1s ease 1.2s both; }
+/* Jemný nástup hlavičky bez skrytí obsahu při chybě JavaScriptu */
+.site-header { animation: header-in 1s ease 0.2s both; }
 @keyframes header-in { from { opacity: 0; } to { opacity: 1; } }
+/* Stabilní chování obrázků a odkazů */
+.media-inner { transition: transform .7s var(--ease); }
+.project:hover .media-inner { transform: scale(1.025); }
+section[id] { scroll-margin-top: 5rem; }
